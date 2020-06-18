@@ -8,4 +8,12 @@ module.exports = function(app){
             res.json(err);
         });
     });
+
+    app.post("/api/workouts", (req, res)=> {
+        db.Workout.create({req}).then(dbWorkout => {
+            res.json(dbWorkout);
+        }).catch(err => {
+            res.json(err);
+        });
+    });
 }
